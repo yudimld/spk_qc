@@ -21,6 +21,11 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',     // Menambahkan username
+        'nup',          // Menambahkan NUP
+        'department',   // Menambahkan department
+        'role',         // Menambahkan role
+        'company',      // Menambahkan company
     ];
 
     /**
