@@ -1,6 +1,6 @@
 <div class="logo-header" style="background-color: #ADE1FB;">				
     <a href="#" class="logo">
-        <img src="{{ asset('atlantis/assets/img/logoLai.png') }}" alt="navbar brand" class="navbar-brand" style="width: 180px;">
+        <img src="{{ asset('atlantis/assets/img/LogoLAI.png') }}" alt="navbar brand" class="navbar-brand" style="width: 180px;">
     </a>
     <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">

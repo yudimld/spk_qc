@@ -1,8 +1,11 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>@yield('title', 'Atlantis Dashboard')</title>
+    <title>@yield('title', 'Default Title')</title>
+    
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-    <link rel="icon" href="{{ asset('atlantis/assets/img/icon.ico') }}" type="image/x-icon"/>
+    <link rel="icon" href="{{ asset('atlantis/assets/img/lai.ico') }}" type="image/x-icon"/>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <!-- Fonts and icons -->
     <script src="{{ asset('atlantis/assets/js/plugin/webfont/webfont.min.js') }}"></script>
@@ -22,4 +25,10 @@
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="{{ asset('atlantis/assets/css/demo.css') }}">
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+
 </head>

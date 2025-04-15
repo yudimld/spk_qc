@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\User; // Pastikan kita memanggil model User
 
 class AuthenticatedSessionController extends Controller
 {
@@ -24,24 +25,38 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        // Melakukan autentikasi menggunakan username dan password
+        if (Auth::attempt(['username' => $request->username, 'password' => $request->password], $request->remember)) {
+            $request->session()->regenerate();
 
-        $request->session()->regenerate();
+            // Mendapatkan role pengguna
+            $user = Auth::user();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+            // Jika role adalah spv_qa, manager_qa, atau staff_edc, arahkan ke Master Data PAC
+            if (in_array($user->role, ['spv_qa', 'manager_qa', 'staff_edc'])) {
+                return redirect()->route('master_data_pac'); // Redirect ke Master Data PAC
+            }
+            
+            return redirect()->intended(route('dashboard.index', absolute: false));
+        }
+    
+        // Jika gagal login
+        return back()->withErrors([
+            'username' => 'The provided credentials do not match our records.',
+        ]);
     }
 
     /**
      * Destroy an authenticated session.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(Request $request)
     {
-        Auth::guard('web')->logout();
-
+        Auth::logout();
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
-        return redirect('/');
+    
+        // Mengalihkan ke halaman login setelah logout
+        return redirect()->route('login');
     }
+    
 }

@@ -33,13 +33,13 @@ return [
 
         'mongodb' => [
             'driver'   => 'mongodb',
-            'host'     => env('DB_HOST', '127.0.0.1'),
-            'port'     => env('DB_PORT', 27017),
-            'database' => env('DB_DATABASE'),
-            'username' => env('DB_USERNAME'),
-            'password' => env('DB_PASSWORD'),
+            'host'     => env('DB_MONGO_HOST', 'localhost'),
+            'port'     => env('DB_MONGO_PORT', 27017),
+            'database' => env('DB_MONGO_DATABASE', 'spk_qclab'),
+            'username' => env('DB_MONGO_USERNAME', 'admin'),
+            'password' => env('DB_MONGO_PASSWORD', 'Katago2023*'),
             'options'  => [
-                'database' => env('DB_DATABASE'),
+                'database' => env('DB_MONGO_AUTH_SOURCE', 'admin'), // set the authentication database
             ],
         ],
 
