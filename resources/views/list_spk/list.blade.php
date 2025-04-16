@@ -214,6 +214,8 @@
                                                 <th>Doc.</th>
                                                 <th>No Ticket</th>
                                                 <th>Department</th>
+                                                <th>Time to Close</th>
+                                                <th>Time to Release</th>
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -227,6 +229,8 @@
                                                 <th>Details</th>
                                                 <th>No Ticket</th>
                                                 <th>Department</th>
+                                                <th>Time to Close</th>
+                                                <th>Time to Release</th>
                                             </tr>
                                         </tfoot>
                                         <tbody>
@@ -291,7 +295,9 @@
                                                         <!-- <a href="javascript:void(0);" class="btn btn-link btn-warning" data-id="{{ $spk->id }}" id="btnEdit"><i class="fa fa-edit"></i></a> -->
                                                     </td>
                                                     <td>{{ $spk->no_ticket }}</td>
-                                                    <td>{{ $spk->department ?? 'No department' }}</td> <!-- Menghindari error jika user null -->
+                                                    <td>{{ $spk->department ?? 'No department' }}</td>
+                                                    <td>{{ $spk->time_to_close ?? '00:00:00' }}</td>
+                                                    <td>{{ $spk->time_to_release ?? '00:00:00' }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

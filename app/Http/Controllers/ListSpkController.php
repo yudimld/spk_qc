@@ -59,6 +59,28 @@ class ListSpkController extends Controller
             $user = $users->firstWhere('nup', $spk->created_by);  // Cari user berdasarkan nup
             $spk->department = $user ? $user->department : null;  // Jika ada user, tambahkan department
 
+            // Hitung selisih waktu antara updated_at dan created_at
+            $created = Carbon::parse($spk->created_at);
+            $updated = Carbon::parse($spk->updated_at);
+            $diff = $updated->diff($created);
+
+            // Hitung selisih waktu antara penyerahan_sample dan test_date dengan pengecekan test_date
+            if ($spk->test_date) {
+                $created1 = Carbon::parse($spk->penyerahan_sample);
+                $updated1 = Carbon::parse($spk->test_date);
+                $diff1 = $updated1->diff($created1);
+
+                // Format selisih waktu menjadi HH:MM:SS
+                $spk->time_to_release = sprintf('%02d:%02d:%02d', $diff1->h, $diff1->i, $diff1->s);
+            } else {
+                // Jika test_date belum ada, set default 00:00:00
+                $spk->time_to_release = '00:00:00';
+            }
+
+            // Format selisih waktu menjadi HH:MM:SS
+            $spk->time_to_close = sprintf('%02d:%02d:%02d', $diff->h, $diff->i, $diff->s);
+            // $spk->time_to_release = sprintf('%02d:%02d:%02d', $diff1->h, $diff1->i, $diff1->s);
+
             // Pengecualian untuk role tertentu
             if (!in_array($loggedInUser->role, $excludedRoles)) {
                 // Hanya tampilkan SPK jika department sesuai dengan user yang login
@@ -74,8 +96,6 @@ class ListSpkController extends Controller
         // Kirim data SPK yang sudah digabungkan dengan data user ke view
         return view('list_spk.list', compact('spks'));
     }
-
-    
 
     public function show($id)
     {
