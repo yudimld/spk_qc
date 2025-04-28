@@ -159,7 +159,7 @@
                     <span class="isi">{{ $spk->nama_material }}</span>
                 </div>
                 <div class="info-row">
-                    <span class="label">Bacth Number : </span>
+                    <span class="label">Lot / Bacth Number : </span>
                     <span class="isi">{{ $spk->batch_number }}</span>
                 </div>
                 <div class="info-row">
@@ -175,6 +175,10 @@
 
             <!-- Kolom Kanan -->
             <div class="col-right">
+                <div class="info-row">
+                    <span class="label">Plat Nomor Mobil :</span>
+                    <span class="isi">{{ $spk->no_mobil }}</span>
+                </div>
                 <div class="info-row">
                     <span class="label">
                         Expiry Date :

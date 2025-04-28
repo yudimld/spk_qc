@@ -112,21 +112,21 @@ class CreateSpkController extends Controller
         if ($request->has('location') && $request->input('location') === 'gresik') {
             $materials = Gresik::where('material_name', 'like', '%' . $searchTerm . '%')
                 ->limit(30)
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
         }
         // Menggunakan model Tangerang jika location adalah 'tangerang'
         else if ($request->has('location') && $request->input('location') === 'tangerang') {
             $materials = Tangerang::where('material_name', 'like', '%' . $searchTerm . '%')
                 ->limit(30)
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
         }
         // Default: jika location tidak diatur, bisa mencari dari kedua model
         else {
             $materialsGresik = Gresik::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
                     
             $materialsTangerang = Tangerang::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
     
             // Gabungkan hasil dari kedua model
             $materials = $materialsGresik->merge($materialsTangerang);
@@ -148,16 +148,16 @@ class CreateSpkController extends Controller
         // Logika untuk mengambil data material berdasarkan lokasi (misal: 'gresik' atau 'tangerang')
         if ($request->has('location') && $request->input('location') === 'gresik') {
             $materials = Gresik::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
         } else if ($request->has('location') && $request->input('location') === 'tangerang') {
             $materials = Tangerang::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
         } else {
             $materialsGresik = Gresik::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
 
             $materialsTangerang = Tangerang::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
 
             $materials = $materialsGresik->merge($materialsTangerang);
         }
@@ -181,13 +181,13 @@ class CreateSpkController extends Controller
                 ->get(['material_code', 'material_name', 'dimension']);
         } else if ($request->has('location') && $request->input('location') === 'tangerang') {
             $materials = Tangerang::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
         } else {
             $materialsGresik = Gresik::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
 
             $materialsTangerang = Tangerang::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
 
             $materials = $materialsGresik->merge($materialsTangerang);
         }
@@ -209,16 +209,16 @@ class CreateSpkController extends Controller
         // Ganti sesuai dengan kebutuhan basis data Anda
         if ($request->has('location') && $request->input('location') === 'gresik') {
             $materials = Gresik::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
         } else if ($request->has('location') && $request->input('location') === 'tangerang') {
             $materials = Tangerang::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
         } else {
             $materialsGresik = Gresik::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
 
             $materialsTangerang = Tangerang::where('material_name', 'like', '%' . $searchTerm . '%')
-                ->get(['material_code', 'material_name', 'dimension']);
+                ->get(['material_code', 'material_name']);
 
             $materials = $materialsGresik->merge($materialsTangerang);
         }
@@ -243,13 +243,17 @@ class CreateSpkController extends Controller
             'product_type' => 'required|string|max:255',
             'datetime' => 'required|date',
             'code_material' => 'required|string|max:255', 
-            'nama_material' => 'required|string|max:255', 
+            // 'nama_material' => 'required|string|max:255', 
+            'nama_material' => ['required', 'string', 'max:255', 'not_in:""'],
             'nama_supplier' => 'nullable|string|max:255',
             'tanggal_kedatangan' => 'required|date',  
             'no_mobil' => 'nullable|string|max:50',
             'batch_number' => 'nullable|string|max:50',
             'keterangan' => 'nullable|string|max:255',
             // 'selected_checkboxes' => 'nullable|array',  
+        ], [
+            'nama_material.required' => 'Nama Material wajib dipilih.',
+            'nama_material.not_in' => 'Nama Material wajib dipilih dan tidak boleh kosong.',
         ]);
 
         // Menyimpan data checkbox yang dipilih
@@ -313,11 +317,15 @@ class CreateSpkController extends Controller
                 'material_type' => 'required|string|max:255',
                 'product_type' => 'required|string|max:255',
                 'code_material' => 'required|string|max:255',
-                'nama_material' => 'required|string|max:255',
+                // 'nama_material' => 'required|string|max:255',
+                'nama_material' => ['required', 'string', 'max:255', 'not_in:""'],
                 'batch_number' => 'required|string|max:50',
                 'penyerahan_sample' => 'required|date',  // Pastikan format tanggal benar
                 'manufacture_date' => 'required|date',
                 'keterangan' => 'nullable|string|max:255',
+            ], [
+                'nama_material.required' => 'Nama Material wajib dipilih.',
+                'nama_material.not_in' => 'Nama Material wajib dipilih dan tidak boleh kosong.',
             ]);
 
             // Ambil ID pengguna yang sedang login
@@ -382,12 +390,16 @@ class CreateSpkController extends Controller
                 'product_type' => 'required|string|max:255',
                 'penyerahan_sample' => 'required|date',
                 'code_material' => 'required|string|max:255',
-                'nama_material' => 'required|string|max:255',  // Nama Material
+                // 'nama_material' => 'required|string|max:255', 
+                'nama_material' => ['required', 'string', 'max:255', 'not_in:""'],
                 'nama_supplier' => 'nullable|string|max:255',  // Nama Supplier
                 'tanggal_kedatangan' => 'required|date',       // Tanggal Kedatangan
                 'no_mobil' => 'nullable|string|max:50',        // No. Mobil
                 'batch_number' => 'nullable|string|max:50',       // Nomor Lot
                 'keterangan' => 'nullable|string|max:255',     // Keterangan
+            ], [
+                'nama_material.required' => 'Nama Material wajib dipilih.',
+                'nama_material.not_in' => 'Nama Material wajib dipilih dan tidak boleh kosong.',
             ]);
 
             // Ambil ID Card pengguna yang sedang login
@@ -520,11 +532,15 @@ class CreateSpkController extends Controller
             'product_type' => 'required|string|max:255',
             'datetime' => 'required|date',
             'code_material' => 'required|string|max:255',  // Code material
-            'nama_material' => 'required|string|max:255',  // Material name
+            // 'nama_material' => 'required|string|max:255',
+            'nama_material' => ['required', 'string', 'max:255', 'not_in:""'],
             'no_spk' => 'nullable|string|max:50',
             'batch_number' => 'nullable|string|max:50',
             'manufacture_date' => 'nullable|string|max:50',
             'keterangan' => 'nullable|string|max:255',
+        ], [
+            'nama_material.required' => 'Nama Material wajib dipilih.',
+            'nama_material.not_in' => 'Nama Material wajib dipilih dan tidak boleh kosong.',
         ]);
 
         // Menyimpan data checkbox yang dipilih

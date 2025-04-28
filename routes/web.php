@@ -18,57 +18,17 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::put('password', [PasswordController::class, 'update'])->name('password.update');
 
-    Route::middleware('role:manager_qc,spv_qc,staff_edc')->group(function () {
+    Route::middleware(['role:manager_qc,spv_qc,staff_edc'])->group(function () {
         // Dashboard Page
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
     });
 
-    // Route::middleware('role:manager_qc,spv_qc,staff_edc')->group(function () {
-    //     // Halaman Create SPK
-    //     Route::get('/create-spk', [CreateSpkController::class, 'create'])->middleware(['auth'])->name('create_spk');
-    //     // Route untuk form 1
-    //     Route::post('/store-form1', [CreateSpkController::class, 'storeForm1'])->name('store.form1');
-    //     // Route untuk form 2
-    //     Route::post('/store-form2', [CreateSpkController::class, 'storeForm2'])->name('store.form2');
-    //     // Route untuk form 3
-    //     Route::post('/store-form3', [CreateSpkController::class, 'storeForm3'])->name('store.form3');
-    //     // Route untuk form 4
-    //     Route::post('/store-form4', [CreateSpkController::class, 'storeForm4'])->name('store.form4');
-    //     // Route untuk menyimpan data Form 5
-    //     Route::post('/store-form5', [CreateSpkController::class, 'storeForm5'])->name('store.form5');
-    //     // auto ceklis form 1
-    //     Route::get('/get-product-parameters', [CreateSpkController::class, 'getProductParameters'])->name('get.product.parameters');
-    //     // Route untuk mendapatkan data code material di Form 1
-    //     Route::get('/get-materials', [CreateSpkController::class, 'getMaterials'])->name('get.materials');
-    //     // Route untuk mendapatkan data code material di Form 5
-    //     Route::get('/get-materials-form5', [CreateSpkController::class, 'getMaterialsForm5'])->name('get.materials.form5');
-    //     // Route untuk mendapatkan data code material di Form 2
-    //     Route::get('/get-materials-form2', [CreateSpkController::class, 'getMaterialsForm2'])->name('get.materials.form2');
-    //     // Route untuk mendapatkan data code material di Form 3
-    //     Route::get('/get-materials-form3', [CreateSpkController::class, 'getMaterialsForm3'])->name('get.materials.form3');
-    //     // data master product_name form 1
-    //     Route::get('/api/products', [CreateSpkController::class, 'getProducts'])->name('products.get');
-    //     // data master product_name form 5
-    //     Route::get('/api/products5', [CreateSpkController::class, 'getProducts5'])->name('products.get5');
-    //     Route::get('/api/specialty-products', [CreateSpkController::class, 'getSpecialtyProducts'])->name('specialty.products.get');
-    //     // end create spk
-    // });
-    Route::middleware(function ($request, $next) {
-        // Cek jika role pengguna adalah 'staff_qc'
-        if (auth()->user()->role === 'staff_admin') {
-            // Redirect staff_qc ke halaman lain, misalnya dashboard
-            return redirect()->route('dashboard.index');
-        }
 
-        // Jika role bukan 'staff_qc', lanjutkan request ke route yang dituju
-        return $next($request);
-    })->group(function () {
-        // Halaman Create SPK
         Route::get('/create-spk', [CreateSpkController::class, 'create'])->name('create_spk');
         
         // Route untuk form 1
@@ -109,9 +69,9 @@ Route::middleware('auth')->group(function () {
         
         // Route untuk specialty products
         Route::get('/api/specialty-products', [CreateSpkController::class, 'getSpecialtyProducts'])->name('specialty.products.get');
-    });
 
-    Route::middleware('role:manager_qc,spv_qc,staff_edc,director,staff_qc')->group(function () {
+
+    Route::middleware(['role:manager_qc,spv_qc,staff_edc,director,staff_qc'])->group(function () {
         // Route untuk Status Sample
         Route::get('/status-sample', [SampleController::class, 'statusSample'])->name('status_sample');
         // Route untuk mendapatkan detail berdasarkan ID di status sample
@@ -144,7 +104,7 @@ Route::middleware('auth')->group(function () {
     });
 
     // Master Data PAC (Untuk manager_qa, spv_qa, dan staff_edc)
-    Route::middleware('role:manager_pdqa,spv_pdqa,staff_pdqa,staff_edc,director')->group(function () {
+    Route::middleware(['role:manager_pdqa,spv_pdqa,staff_pdqa,staff_edc,director'])->group(function () {
         // Master Data PAC
         Route::get('/master-data-pac', [MasterDataPacController::class, 'index'])->name('master_data_pac');
         Route::get('/get-pac-data', [MasterDataPacController::class, 'getPacData'])->name('get.pac.data');

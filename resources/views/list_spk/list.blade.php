@@ -259,12 +259,12 @@
                                                         <a href="javascript:void(0);" class="btn btn-link btn-success" data-id="{{ $spk->id }}" id="btnCloseSpk" style="margin-top: 10px;"><i class="fa fa-check"></i></a>
                                                         @endif
                                                         
-                                                        @if($spk->status == 'request to close' && $spk->qc_status == 'Reject')
+                                                        <!-- @if($spk->status == 'request to close' && $spk->qc_status == 'Reject') -->
                                                         <!-- Tombol Re-assign -->
-                                                        <a href="javascript:void(0);" class="btn btn-link btn-warning" data-id="{{ $spk->id }}" id="btnReassignSpk" style="margin-top: 10px;">
+                                                        <!-- <a href="javascript:void(0);" class="btn btn-link btn-warning" data-id="{{ $spk->id }}" id="btnReassignSpk" style="margin-top: 10px;">
                                                             <i class="fa fa-sync-alt"></i>
-                                                        </a>
-                                                        @endif
+                                                        </a> -->
+                                                        <!-- @endif -->
                                                         
                                                         @if($spk->status != 'request to close' && $spk->status != 'closed' && $spk->created_by == Auth::user()->nup)
                                                         <!-- Tombol Delete -->
@@ -485,6 +485,10 @@
                         if (response.hasOwnProperty(key) && key !== 'updated_at' && key !== 'created_at' && key !== '_id' && key !== 'id' && key !== 'parameters_data') {
                             var label = key.charAt(0).toUpperCase() + key.slice(1);  // Label untuk field
 
+                            // Ubah label jika key adalah 'batch_number'
+                            if (key === 'batch_number') {
+                                label = 'Nomor Lot / Batch';
+                            }
                             // Jika data adalah selected_checkboxes (untuk checkbox), proses dan tampilkan dalam bentuk list
                             if (key === 'selected_checkboxes') {
                                 content += `

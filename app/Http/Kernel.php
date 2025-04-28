@@ -55,7 +55,12 @@ class Kernel extends HttpKernel
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'role' => \App\Http\Middleware\RoleMiddleware::class, // Menambahkan middleware 'role'
-        // Middleware lainnya
+        'role' => \App\Http\Middleware\CheckRole::class,
     ];
+
+    protected $middlewareAliases = [
+        // Middleware lain...
+        'role' => \App\Http\Middleware\CheckRole::class,
+    ];
+    
 }

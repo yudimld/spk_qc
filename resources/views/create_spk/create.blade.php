@@ -172,7 +172,7 @@
                                                         <!-- Material Type Field -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="material-form1">Material Type</label>
+                                                                <label for="material-form1">Tipe Material</label>
                                                                 <input type="text" class="form-control" id="material-form1" readonly>
                                                             </div>
                                                         </div>
@@ -180,7 +180,7 @@
                                                         <!-- Product Type Field -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="product-form1">Product Type</label>
+                                                                <label for="product-form1">Tipe Produk</label>
                                                                 <input type="text" class="form-control" id="product-form1" readonly>
                                                             </div>
                                                         </div>
@@ -192,13 +192,13 @@
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="datetime1">Datetime of Submission</label>
+                                                                <label for="datetime1">Tanggal Dan Waktu Penyerahan</label>
                                                                 <input type="datetime-local" class="form-control" id="datetime1" value="{{ now()->setTimezone('Asia/Jakarta')->format('Y-m-d\TH:i') }}" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="code_material1">Code Material</label>
+                                                                <label for="code_material1">Kode Material</label>
                                                                 <!-- Mengganti select2 dengan Choices.js -->
                                                                 <select class="form-control" id="code_material1" style="width: 100%">
                                                                     <option value="">Choose Code Material</option>
@@ -214,9 +214,9 @@
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="nama-material1">Material Name</label>
-                                                                <select class="form-control" id="nama-material1" style="width: 100%">
-                                                                    <option value="">Choose Material Name</option>
+                                                                <label for="nama-material1">Nama Material</label>
+                                                                <select class="form-control" id="nama-material1" style="width: 100%" required>
+                                                                    <option value="" selected disabled>Pilih Nama Material</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -224,14 +224,14 @@
                                                         <!-- Nama Supplier -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="nama-supplier1">Supplier Name</label>
+                                                                <label for="nama-supplier1">Nama Supplier</label>
                                                                 <input type="text" class="form-control" id="nama-supplier1" placeholder="Enter supplier name">
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="tanggal-kedatangan1">Arrival Date</label>
+                                                                <label for="tanggal-kedatangan1">Tanggal Kedatangan</label>
                                                                 <input type="date" class="form-control" id="tanggal-kedatangan1" value="{{ now()->format('Y-m-d') }}">
                                                             </div>
                                                         </div>
@@ -241,7 +241,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="no-mobil1">Car Number</label>
+                                                                <label for="no-mobil1">Plat Nomor Mobil</label>
                                                                 <input type="text" class="form-control" id="no-mobil1" placeholder="Enter vehicle number">
                                                             </div>
                                                         </div>
@@ -249,7 +249,7 @@
                                                         <!-- Daftar Nomor Lot -->
                                                         <div class="col-md-6">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="batch_number1">Batch Number</label>
+                                                                <label for="batch_number1">Nomor Lot/Batch </label>
                                                                 <input type="text" class="form-control" id="batch_number1" placeholder="Enter Batch Numbers">
                                                             </div>
                                                         </div>
@@ -258,7 +258,7 @@
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="keterangan1">Information</label>
+                                                                <label for="keterangan1">Informasi</label>
                                                                 <textarea class="form-control" id="keterangan1" rows="3" placeholder="Enter description (optional)"></textarea>
                                                             </div>
                                                         </div>
@@ -298,7 +298,7 @@
                                                         <!-- Material Type Field -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="material-form1">Material Type</label>
+                                                                <label for="material-form1">Tipe Material</label>
                                                                 <input type="text" class="form-control" id="material-form2" readonly>
                                                             </div>
                                                         </div>
@@ -306,7 +306,7 @@
                                                         <!-- Product Type Field -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="product-form1">Product Type</label>
+                                                                <label for="product-form1">Tipe Produk</label>
                                                                 <input type="text" class="form-control" id="product-form2" readonly>
                                                             </div>
                                                         </div>
@@ -316,7 +316,7 @@
                                                         <!-- Tanggal dan Jam Penyerahan Sample -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="penyerahan-sample2">Datetime of Submission</label>
+                                                                <label for="penyerahan-sample2">Tanggal dan Waktu Penyerahan</label>
                                                                 <input type="datetime-local" class="form-control" id="penyerahan-sample2" value="{{ now()->setTimezone('Asia/Jakarta')->format('Y-m-d\TH:i') }}" readonly>
                                                             </div>
                                                         </div>
@@ -324,7 +324,7 @@
                                                         <!-- Material Code Field -->
                                                         <div class="col-md-8">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="code-material2">Material Code</label>
+                                                                <label for="code-material2">Kode Material</label>
                                                                 <select class="form-control" id="code-material2" style="width: 100%">
                                                                     <option value="">Choose Material Code</option>
                                                                 </select>
@@ -339,9 +339,9 @@
                                                         <!-- Nama Material -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="material-name2">Material Name</label>
-                                                                <select class="form-control" id="material-name2" style="width: 100%">
-                                                                    <option value="">Choose Material Name</option>
+                                                                <label for="material-name2">Nama Material</label>
+                                                                <select class="form-control" id="material-name2" style="width: 100%" required>
+                                                                    <option value="" selected disabled>Pilih Nama Material</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -349,7 +349,7 @@
                                                         <!-- Nomor Lot -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="batch_number2">Batch Number</label>
+                                                                <label for="batch_number2">Nomor Lot / Batch</label>
                                                                 <input type="text" class="form-control" id="batch_number2" placeholder="Enter Batch number">
                                                             </div>
                                                         </div>
@@ -357,7 +357,7 @@
                                                         <!-- Manufacture Date -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="manufacture_date2">Manufacture Date</label>
+                                                                <label for="manufacture_date2">Tanggal Produksi</label>
                                                                 <input type="date" class="form-control" id="manufacture_date2" name="manufacture_date2" 
                                                                     value="<?= date('Y-m-d'); ?>">
                                                             </div>
@@ -370,7 +370,7 @@
                                                         <!-- Keterangan -->
                                                         <div class="col-md-12">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="keterangan2">Information</label>
+                                                                <label for="keterangan2">Informasi</label>
                                                                 <textarea class="form-control" id="keterangan2" rows="3" placeholder="Enter description"></textarea>
                                                             </div>
                                                         </div>
@@ -411,7 +411,7 @@
                                                         <!-- Material Type Field -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="material-form3">Material Type</label>
+                                                                <label for="material-form3">Tipe Material</label>
                                                                 <input type="text" class="form-control" id="material-form3" readonly>
                                                             </div>
                                                         </div>
@@ -419,7 +419,7 @@
                                                         <!-- Product Type Field -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="product-form3">Product Type</label>
+                                                                <label for="product-form3">Tipe Produk</label>
                                                                 <input type="text" class="form-control" id="product-form3" readonly>
                                                             </div>
                                                         </div>
@@ -429,7 +429,7 @@
                                                         <!-- Tanggal dan Jam Penyerahan Sample -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="penyerahan-sample3">Datetime of Submission</label>
+                                                                <label for="penyerahan-sample3">Tanggal dan Waktu Penyerahan</label>
                                                                 <input type="datetime-local" class="form-control" id="penyerahan-sample3" value="{{ now()->setTimezone('Asia/Jakarta')->format('Y-m-d\TH:i') }}" readonly>
                                                             </div>
                                                         </div>
@@ -437,9 +437,9 @@
                                                         <!-- Material Code Field -->
                                                         <div class="col-md-8">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="code-material3">Material Code</label>
+                                                                <label for="code-material3">Kode Material</label>
                                                                 <select class="form-control" id="code-material3" style="width: 100%">
-                                                                    <option value="">Choose Material Code</option>
+                                                                    <option value="">Pilih Kode Material</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -452,22 +452,22 @@
                                                         <!-- Nama Material -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="material-name3">Material Name</label>
-                                                                <select class="form-control" id="material-name3" style="width: 100%">
-                                                                    <option value="">Choose Material Name</option>
+                                                                <label for="material-name3">Nama Material</label>
+                                                                <select class="form-control" id="material-name3" style="width: 100%" required>
+                                                                    <option value="" selected disabled>Pilih Nama Material</option>
                                                                 </select>
                                                             </div>
                                                         </div>
                                                         <!-- Nama Supplier -->
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="nama-supplier3">Supplier Name</label>
+                                                                <label for="nama-supplier3">Nama Supplier</label>
                                                                 <input type="text" class="form-control" id="nama-supplier3" placeholder="Enter supplier name">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="tanggal-kedatangan3">Arrival Date</label>
+                                                                <label for="tanggal-kedatangan3">Tanggal Kedatangan</label>
                                                                 <input type="date" class="form-control" id="tanggal-kedatangan3" value="{{ now()->format('Y-m-d') }}">
                                                             </div>
                                                         </div>
@@ -480,7 +480,7 @@
                                                         <!-- No. Mobil -->
                                                         <div class="col-md-6">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="no-mobil3">Car Number</label>
+                                                                <label for="no-mobil3">Plat Nomor Mobil</label>
                                                                 <input type="text" class="form-control" id="no-mobil3" placeholder="Enter vehicle number">
                                                             </div>
                                                         </div>
@@ -488,7 +488,7 @@
                                                         <!-- Daftar Nomor Lot -->
                                                         <div class="col-md-6">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="batch_number3">Batch Number</label>
+                                                                <label for="batch_number3">Nomor Lot / Batch</label>
                                                                 <input type="text" class="form-control" id="batch_number3" placeholder="Enter Batch Numbers">
                                                             </div>
                                                         </div>
@@ -499,7 +499,7 @@
                                                         <!-- Keterangan -->
                                                         <div class="col-md-12">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="keterangan">Information</label>
+                                                                <label for="keterangan">Informasi</label>
                                                                 <textarea class="form-control" id="keterangan" rows="3" placeholder="Enter description"></textarea>
                                                             </div>
                                                         </div>
@@ -651,15 +651,15 @@
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="datetime5">Datetime of Submission</label>
+                                                                <label for="datetime5">Tanggan dan Waktu Penyerahan</label>
                                                                 <input type="datetime-local" class="form-control" id="datetime5" value="{{ now()->setTimezone('Asia/Jakarta')->format('Y-m-d\TH:i') }}" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="code-material5">Code Material</label>
+                                                                <label for="code-material5">Kode Material</label>
                                                                 <select class="form-control" id="code-material5" style="width: 100%">
-                                                                    <option value="">Choose Code Material</option>
+                                                                    <option value="">Pilih Kode Material</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -671,9 +671,9 @@
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="material-name5">Material Name</label>
-                                                                <select class="form-control" id="material-name5" style="width: 100%">
-                                                                    <option value="">Choose Material Name</option>
+                                                                <label for="material-name5">Nama Material</label>
+                                                                <select class="form-control" id="material-name5" style="width: 100%" required>
+                                                                    <option value="" selected disabled>Pilih Nama Material</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -688,7 +688,7 @@
 
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="batch_number5">Batch Number</label>
+                                                                <label for="batch_number5">Nomor Lot / Batch</label>
                                                                 <input type="text" class="form-control" id="batch_number5" placeholder="Enter Batch Numbers">
                                                             </div>
                                                         </div>
@@ -697,14 +697,14 @@
                                                     <div class="row">
                                                         <div class="col-md-4">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="manufacture_date5">Manufacture Date</label>
+                                                                <label for="manufacture_date5">Tanggal Produksi</label>
                                                                 <input type="date" class="form-control" id="manufacture_date5" name="manufacture_date2" 
                                                                     value="<?= date('Y-m-d'); ?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <div class="form-group" style="background-color: #f4f4f4; padding: 15px; border-radius: 8px;">
-                                                                <label for="keterangan5">Information</label>
+                                                                <label for="keterangan5">Informasi</label>
                                                                 <textarea class="form-control" id="keterangan5" rows="3" placeholder="Enter description (optional)"></textarea>
                                                             </div>
                                                         </div>
@@ -869,7 +869,7 @@
                         // Format data untuk Choices.js
                         const formattedData = data.items.map(item => ({
                             value: item.material_code,  // Value untuk dipilih
-                            label: item.material_code + ' - ' + item.material_name + ' - ' + item.dimension  // Label yang akan ditampilkan di dropdown
+                            label: item.material_code + ' - ' + item.material_name   // Label yang akan ditampilkan di dropdown
                         }));
 
                         // Menggunakan setChoices untuk memasukkan data ke dalam dropdown Choices.js
@@ -906,7 +906,7 @@
                         // Format data untuk Choices.js
                         const formattedData = data.items.map(item => ({
                             value: item.material_code,
-                            label: item.material_code + ' - ' + item.material_name + ' - ' + item.dimension
+                            label: item.material_code + ' - ' + item.material_name
                         }));
 
                         // Menggunakan setChoices untuk memasukkan data ke dalam dropdown Choices.js
@@ -943,7 +943,7 @@
                         // Format data untuk Choices.js
                         const formattedData = data.items.map(item => ({
                             value: item.material_code,  // ID material sebagai value
-                            label: item.material_code + ' - ' + item.material_name + ' - ' + item.dimension
+                            label: item.material_code + ' - ' + item.material_name
                         }));
 
                         // Menggunakan setChoices untuk memasukkan data ke dalam dropdown
@@ -980,7 +980,7 @@
                         // Format data untuk Choices.js
                         const formattedData = data.items.map(item => ({
                             value: item.material_code,  // ID material sebagai value
-                            label: item.material_code + ' - ' + item.material_name + ' - ' + item.dimension
+                            label: item.material_code + ' - ' + item.material_name
                         }));
 
                         // Menggunakan setChoices untuk memasukkan data ke dalam dropdown
@@ -1225,13 +1225,21 @@
     <script>
         document.getElementById("submit-form1").addEventListener("click", function(event) {
             event.preventDefault(); // Mencegah form mengirim GET request
-            let csrfToken = document.querySelector('meta[name="csrf-token"]');
-            if (!csrfToken) {
-                console.error("CSRF token not found");
-                return;
+            // Validasi wajib pilih Material Name
+            var materialSelect = document.getElementById('nama-material1');
+            if (!materialSelect.value) {
+                swal("Warning!", "Please select a Material Name before submitting.", "warning");
+                return; // Hentikan proses jika belum dipilih
             }
 
-            csrfToken = csrfToken.getAttribute('content');
+            // Ambil CSRF token dari meta tag
+            let csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+            if (!csrfTokenMeta) {
+                console.error("CSRF token not found");
+                swal("Error!", "CSRF token not found. Please refresh the page.", "error");
+                return;
+            }
+            let csrfToken = csrfTokenMeta.getAttribute('content');
 
             // Mengambil ID dan nama material
             var materialNameValue = document.getElementById('nama-material1').value;
@@ -1303,16 +1311,24 @@
     </script>
 
     <!-- Form 2 save data -->
-    <script>
+    <!-- <script>
         document.getElementById("submit-form2").addEventListener("click", function () {
-            // Ambil CSRF Token
-            let csrfToken = document.querySelector('meta[name="csrf-token"]');
-            if (!csrfToken) {
-                console.error("CSRF token not found");
-                return;
+            event.preventDefault();
+            // Validasi wajib pilih Material Name
+            var materialSelect = document.getElementById('nama-material2');
+            if (!materialSelect.value) {
+                swal("Warning!", "Please select a Material Name before submitting.", "warning");
+                return; // Hentikan proses jika belum dipilih
             }
 
-            csrfToken = csrfToken.getAttribute('content');
+            // Ambil CSRF token dari meta tag
+            let csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+            if (!csrfTokenMeta) {
+                console.error("CSRF token not found");
+                swal("Error!", "CSRF token not found. Please refresh the page.", "error");
+                return;
+            }
+            let csrfToken = csrfTokenMeta.getAttribute('content');
             // Mengambil ID dan nama material
             var materialNameValue = document.getElementById('material-name2').value;
             var materialNameText = $('#material-name2 option:selected').text();  // Get selected text (product name)
@@ -1381,20 +1397,113 @@
                 }
             });
         });
+    </script> -->
+    <script>
+        document.getElementById("submit-form2").addEventListener("click", function(event) {
+            event.preventDefault();
+
+            // Validasi wajib pilih Material Name
+            var materialSelect = document.getElementById('material-name2');
+            if (!materialSelect.value) {
+                swal("Warning!", "Please select a Material Name before submitting.", "warning");
+                return; // Hentikan proses jika belum dipilih
+            }
+
+            // Ambil CSRF token dari meta tag
+            let csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+            if (!csrfTokenMeta) {
+                console.error("CSRF token not found");
+                swal("Error!", "CSRF token not found. Please refresh the page.", "error");
+                return;
+            }
+            let csrfToken = csrfTokenMeta.getAttribute('content');
+
+            // Ambil nilai dan teks material yang dipilih
+            var materialNameValue = materialSelect.value;
+            var materialNameText = materialSelect.options[materialSelect.selectedIndex].text;
+
+            // Kumpulkan data form
+            var form2Data = {
+                department: document.getElementById("department-form2") ? document.getElementById("department-form2").value : '',
+                material_type: document.getElementById("material-form2") ? document.getElementById("material-form2").value : '',
+                product_type: document.getElementById("product-form2") ? document.getElementById("product-form2").value : '',
+                code_material: document.getElementById("code-material2") ? document.getElementById("code-material2").value : '',
+                nama_material: materialNameText,
+                batch_number: document.getElementById("batch_number2") ? document.getElementById("batch_number2").value : '',
+                penyerahan_sample: document.getElementById("penyerahan-sample2") ? document.getElementById("penyerahan-sample2").value : '',
+                manufacture_date: document.getElementById("manufacture_date2") ? document.getElementById("manufacture_date2").value : '',
+                keterangan: document.getElementById("keterangan2") ? document.getElementById("keterangan2").value : ''
+            };
+
+            // Konfirmasi sebelum submit
+            swal({
+                title: "Are you sure?",
+                text: "Once submitted, data cannot be changed!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true
+            }).then((willSubmit) => {
+                if (willSubmit) {
+                    fetch('/store-form2', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
+                        body: JSON.stringify(form2Data)
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.message) {
+                            swal("Sukses!", data.message, "success").then(() => {
+                                $('#form2Modal').modal('hide');
+                                document.getElementById("form2").reset();
+                            });
+                        } else {
+                            swal("Error!", "An error occurred while saving data.", "error").then(() => {
+                                $('#form2Modal').modal('hide');
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        swal("Error!", "An error occurred while sending data.", "error").then(() => {
+                            $('#form2Modal').modal('hide');
+                        });
+                    });
+                } else {
+                    swal("Canceled!", "Data is not saved.", "info");
+                }
+            });
+        });
+
     </script>
 
     <!-- Form 3 save data-->
-    <script>
+    <!-- <script>
         document.getElementById("submit-form3").addEventListener("click", function(event) {
             event.preventDefault(); // Mencegah form mengirim GET request
 
-            let csrfToken = document.querySelector('meta[name="csrf-token"]');
-            if (!csrfToken) {
-                console.error("CSRF token not found");
-                return;
+            // Validasi wajib pilih Material Name
+            var materialSelect = document.getElementById('nama-material3');
+            if (!materialSelect.value) {
+                swal("Warning!", "Please select a Material Name before submitting.", "warning");
+                return; // Hentikan proses jika belum dipilih
             }
 
-            csrfToken = csrfToken.getAttribute('content');
+            // Ambil CSRF token dari meta tag
+            let csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+            if (!csrfTokenMeta) {
+                console.error("CSRF token not found");
+                swal("Error!", "CSRF token not found. Please refresh the page.", "error");
+                return;
+            }
+            let csrfToken = csrfTokenMeta.getAttribute('content');
             // Mengambil ID dan nama material
             var materialNameValue = document.getElementById('material-name3').value;
             var materialNameText = $('#material-name3 option:selected').text();  // Get selected text (product name)
@@ -1454,6 +1563,98 @@
             });
         });
 
+    </script> -->
+    <script>
+        document.getElementById("submit-form3").addEventListener("click", function(event) {
+            event.preventDefault(); // Mencegah form submit default
+
+            // Validasi wajib pilih Material Name
+            var materialSelect = document.getElementById('material-name3');
+            if (!materialSelect.value) {
+                swal("Warning!", "Please select a Material Name before submitting.", "warning");
+                return; // Hentikan proses jika belum dipilih
+            }
+
+            // Ambil CSRF token dari meta tag
+            let csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+            if (!csrfTokenMeta) {
+                console.error("CSRF token not found");
+                swal("Error!", "CSRF token not found. Please refresh the page.", "error");
+                return;
+            }
+            let csrfToken = csrfTokenMeta.getAttribute('content');
+
+            // Ambil nilai dan teks material yang dipilih
+            var materialNameValue = materialSelect.value;
+            var materialNameText = materialSelect.options[materialSelect.selectedIndex].text;
+
+            // Ambil nilai input lain dengan pengecekan null agar aman
+            var department = document.getElementById("department-form3") ? document.getElementById("department-form3").value : '';
+            var materialType = document.getElementById("material-form3") ? document.getElementById("material-form3").value : '';
+            var productType = document.getElementById("product-form3") ? document.getElementById("product-form3").value : '';
+            var penyerahanSample = document.getElementById("penyerahan-sample3") ? document.getElementById("penyerahan-sample3").value : '';
+            var codeMaterial = document.getElementById("code-material3") ? document.getElementById("code-material3").value : '';
+            var namaSupplier = document.getElementById("nama-supplier3") ? document.getElementById("nama-supplier3").value : '';
+            var tanggalKedatangan = document.getElementById("tanggal-kedatangan3") ? document.getElementById("tanggal-kedatangan3").value : '';
+            var noMobil = document.getElementById("no-mobil3") ? document.getElementById("no-mobil3").value : '';
+            var batchNumber = document.getElementById("batch_number3") ? document.getElementById("batch_number3").value : '';
+            var keterangan = document.getElementById("keterangan") ? document.getElementById("keterangan").value : '';
+
+            // Kumpulkan data form
+            var form3Data = {
+                department: department,
+                material_type: materialType,
+                product_type: productType,
+                penyerahan_sample: penyerahanSample,
+                code_material: codeMaterial,
+                nama_material: materialNameText,
+                nama_supplier: namaSupplier,
+                tanggal_kedatangan: tanggalKedatangan,
+                no_mobil: noMobil,
+                batch_number: batchNumber,
+                keterangan: keterangan
+            };
+
+            // Konfirmasi submit dengan SweetAlert
+            swal({
+                title: "Are you sure?",
+                text: "Once submitted, data cannot be changed!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true
+            }).then((willSubmit) => {
+                if (willSubmit) {
+                    fetch('/store-form3', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
+                        body: JSON.stringify(form3Data)
+                    })
+                    .then(response => {
+                        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.message) {
+                            swal("Sukses!", data.message, "success").then(() => {
+                                $('#form3Modal').modal('hide');
+                                document.getElementById("form3").reset();
+                            });
+                        } else {
+                            swal("Error!", "An error occurred while saving data.", "error");
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        swal("Error!", "An error occurred while sending data.", "error");
+                    });
+                } else {
+                    swal("Canceled!", "Your data is safe :)", "info");
+                }
+            });
+        });
     </script>
 
 
@@ -1526,16 +1727,24 @@
     </script>
 
     <!-- Form 5 save data -->
-    <script>
+    <!-- <script>
         document.getElementById("submit-form5").addEventListener("click", function(event) {
             event.preventDefault(); // Mencegah form mengirim GET request
-            let csrfToken = document.querySelector('meta[name="csrf-token"]');
-            if (!csrfToken) {
-                console.error("CSRF token not found");
-                return;
+            // Validasi wajib pilih Material Name
+            var materialSelect = document.getElementById('nama-material5');
+            if (!materialSelect.value) {
+                swal("Warning!", "Please select a Material Name before submitting.", "warning");
+                return; // Hentikan proses jika belum dipilih
             }
 
-            csrfToken = csrfToken.getAttribute('content');
+            // Ambil CSRF token dari meta tag
+            let csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+            if (!csrfTokenMeta) {
+                console.error("CSRF token not found");
+                swal("Error!", "CSRF token not found. Please refresh the page.", "error");
+                return;
+            }
+            let csrfToken = csrfTokenMeta.getAttribute('content');
             
             // Mengambil ID dan nama material
             var materialNameValue = document.getElementById('material-name5').value;
@@ -1602,6 +1811,93 @@
                 }
             });
         });
+    </script> -->
+    <script>
+        document.getElementById("submit-form5").addEventListener("click", function(event) {
+    event.preventDefault(); // Mencegah submit default
+
+    // Ambil instance Choices.js untuk material-name5 jika sudah diinisialisasi
+    // Misal Anda menyimpan instance Choices saat inisialisasi dropdown
+    // Jika belum, ambil nilai langsung dari DOM sebagai fallback
+    let materialNameSelect = document.getElementById('material-name5');
+    let selectedValue = materialNameSelect.value;
+    let selectedText = materialNameSelect.options[materialNameSelect.selectedIndex]?.text || '';
+
+    // Jika menggunakan Choices.js, Anda bisa simpan instance Choices saat inisialisasi modal
+    // dan gunakan choicesInstance.getValue(true) untuk nilai
+    // Contoh:
+    // let selectedValue = choicesInstanceForm5.getValue(true);
+    // let selectedText = choicesInstanceForm5.getValue()[0]?.label || '';
+
+    // Validasi wajib pilih Material Name
+    if (!selectedValue) {
+        swal("Warning!", "Please select a Material Name before submitting.", "warning");
+        return; // Hentikan submit jika belum dipilih
+    }
+
+    // Ambil CSRF token
+    let csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+    if (!csrfTokenMeta) {
+        swal("Error!", "CSRF token not found. Please refresh the page.", "error");
+        return;
+    }
+    let csrfToken = csrfTokenMeta.getAttribute('content');
+
+    // Kumpulkan data form
+    var form5Data = {
+        department: document.getElementById("department-form5")?.value || '',
+        material_type: document.getElementById("material-form5")?.value || '',
+        product_type: document.getElementById("product-form5")?.value || '',
+        datetime: document.getElementById("datetime5")?.value || '',
+        code_material: document.getElementById("code-material5")?.value || '',
+        nama_material: selectedText,
+        no_spk: document.getElementById("no-spk5")?.value || '',
+        batch_number: document.getElementById("batch_number5")?.value || '',
+        manufacture_date: document.getElementById("manufacture_date5")?.value || '',
+        keterangan: document.getElementById("keterangan5")?.value || ''
+    };
+
+    // Konfirmasi submit dengan SweetAlert
+    swal({
+        title: "Are You Sure?",
+        text: "The data sent cannot be changed!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true
+    }).then((willSubmit) => {
+        if (willSubmit) {
+            fetch('/store-form5', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify(form5Data)
+            })
+            .then(response => {
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return response.json();
+            })
+            .then(data => {
+                if (data.message) {
+                    swal("Sukses!", data.message, "success").then(() => {
+                        $('#form5Modal').modal('hide');
+                        document.getElementById("form5").reset();
+                    });
+                } else {
+                    swal("Error!", "An error occurred while saving data.", "error");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                swal("Error!", "An error occurred while sending data.", "error");
+            });
+        } else {
+            swal("Canceled!", "Your data is safe :)", "info");
+        }
+    });
+});
+
     </script>
 
     <!-- Search Dropdown Specialty form 3 -->

@@ -329,7 +329,7 @@ class SpkAssignController extends Controller
             // Update data utama SPK
             $spk->test_date = $testDate;
             $spk->qc_status = $qcStatus;
-            $spk->status = "request to close";
+            $spk->status = "closed";
             $spk->keterangan = $keterangan;
 
             $parametersData = [];
@@ -428,7 +428,7 @@ class SpkAssignController extends Controller
             // Update data utama SPK
             $spk->test_date = $testDate;
             $spk->qc_status = $qcStatus;
-            $spk->status = "request to close";
+            $spk->status = "closed";
             $spk->keterangan = $keterangan;
     
             $parametersData = [];
@@ -483,7 +483,7 @@ class SpkAssignController extends Controller
 
         $spk->test_date = $testDate;
         $spk->qc_status = $qcStatus;
-        $spk->status = "request to close";
+        $spk->status = "closed";
 
         $parametersData = [];
 
@@ -557,7 +557,7 @@ class SpkAssignController extends Controller
         $spk->test_date = $testDate;
         $spk->qc_status = $qcStatus;
         // Menambahkan status "request to close"
-        $spk->status = "request to close";
+        $spk->status = "closed";
 
         // Validasi dan persiapkan data untuk disimpan
         $parametersData = [];

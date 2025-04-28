@@ -37,66 +37,125 @@ class ListSpkController extends Controller
     //     // Kirim data SPK yang sudah digabungkan dengan data user ke view
     //     return view('list_spk.list', compact('spks'));
     // }
+    // list dengan filter per departemen
+    // public function index()
+    // {
+    //     // Ambil semua data SPK tanpa filter status
+    //     $spks = Spk::orderBy('created_at', 'desc')->get();  // Ambil semua data SPK untuk diproses
+
+    //     // Ambil ID pengguna (created_by) yang ada di SPK untuk pencarian di User
+    //     $userIds = $spks->pluck('created_by');  // Ambil semua created_by (nup) dari SPK
+
+    //     // Ambil data User berdasarkan 'nup' dari PostgreSQL
+    //     $users = User::whereIn('nup', $userIds)->get();  // Ambil semua user yang nup-nya ada di SPK
+
+    //     // Cek user yang sedang login
+    //     $loggedInUser = auth()->user();
+    //     $excludedRoles = ['staff_qc', 'spv_qc', 'staff_edc', 'manager_edc', 'manager_qc', 'director', 'manager_produksi', 'manager_logistik', 'spv_produksi'];
+
+    //     // Gabungkan data SPK dengan data User berdasarkan 'created_by' (nup)
+    //     $spks->each(function ($spk) use ($users, $loggedInUser, $excludedRoles) {
+    //         // Menambahkan informasi department dari user ke dalam objek SPK
+    //         $user = $users->firstWhere('nup', $spk->created_by);  // Cari user berdasarkan nup
+    //         $spk->department = $user ? $user->department : null;  // Jika ada user, tambahkan department
+
+    //         // Hitung selisih waktu antara updated_at dan created_at
+    //         $created = Carbon::parse($spk->created_at);
+    //         $updated = Carbon::parse($spk->updated_at);
+    //         $diff = $updated->diff($created);
+
+    //         // Hitung selisih waktu antara penyerahan_sample dan test_date dengan pengecekan test_date
+    //         if ($spk->test_date) {
+    //             $created1 = Carbon::parse($spk->penyerahan_sample);
+    //             $updated1 = Carbon::parse($spk->test_date);
+    //             $diff1 = $updated1->diff($created1);
+
+    //             // Format selisih waktu menjadi HH:MM:SS
+    //             $spk->time_to_release = sprintf('%02d:%02d:%02d', $diff1->h, $diff1->i, $diff1->s);
+    //         } else {
+    //             // Jika test_date belum ada, set default 00:00:00
+    //             $spk->time_to_release = '00:00:00';
+    //         }
+
+    //         // Format selisih waktu menjadi HH:MM:SS
+    //         $spk->time_to_close = sprintf('%02d:%02d:%02d', $diff->h, $diff->i, $diff->s);
+    //         // $spk->time_to_release = sprintf('%02d:%02d:%02d', $diff1->h, $diff1->i, $diff1->s);
+
+    //         // Pengecualian untuk role tertentu
+    //         if (!in_array($loggedInUser->role, $excludedRoles)) {
+    //             // Hanya tampilkan SPK jika department sesuai dengan user yang login
+    //             if ($spk->department !== $loggedInUser->department) {
+    //                 $spk->hidden = true; // Menandai data ini agar tidak ditampilkan
+    //             }
+    //         }
+    //     });
+
+    //     // Filter data yang tidak memiliki status hidden
+    //     $spks = $spks->where('hidden', '!=', true);
+
+    //     // Kirim data SPK yang sudah digabungkan dengan data user ke view
+    //     return view('list_spk.list', compact('spks'));
+    // }
 
     public function index()
     {
         // Ambil semua data SPK tanpa filter status
-        $spks = Spk::orderBy('created_at', 'desc')->get();  // Ambil semua data SPK untuk diproses
-
+        $spks = Spk::orderBy('created_at', 'desc')->get();
+    
         // Ambil ID pengguna (created_by) yang ada di SPK untuk pencarian di User
-        $userIds = $spks->pluck('created_by');  // Ambil semua created_by (nup) dari SPK
-
+        $userIds = $spks->pluck('created_by');
+    
         // Ambil data User berdasarkan 'nup' dari PostgreSQL
-        $users = User::whereIn('nup', $userIds)->get();  // Ambil semua user yang nup-nya ada di SPK
-
+        $users = User::whereIn('nup', $userIds)->get();
+    
         // Cek user yang sedang login
         $loggedInUser = auth()->user();
         $excludedRoles = ['staff_qc', 'spv_qc', 'staff_edc', 'manager_edc', 'manager_qc', 'director', 'manager_produksi', 'manager_logistik', 'spv_produksi'];
-
+        $departmentsWithFullAccess = ['PACV', 'PACS'];  // Tambahan departments yang dapat akses penuh
+    
         // Gabungkan data SPK dengan data User berdasarkan 'created_by' (nup)
-        $spks->each(function ($spk) use ($users, $loggedInUser, $excludedRoles) {
+        $spks->each(function ($spk) use ($users, $loggedInUser, $excludedRoles, $departmentsWithFullAccess) {
             // Menambahkan informasi department dari user ke dalam objek SPK
-            $user = $users->firstWhere('nup', $spk->created_by);  // Cari user berdasarkan nup
-            $spk->department = $user ? $user->department : null;  // Jika ada user, tambahkan department
-
+            $user = $users->firstWhere('nup', $spk->created_by);
+            $spk->department = $user ? $user->department : null;
+    
             // Hitung selisih waktu antara updated_at dan created_at
             $created = Carbon::parse($spk->created_at);
             $updated = Carbon::parse($spk->updated_at);
             $diff = $updated->diff($created);
-
+    
             // Hitung selisih waktu antara penyerahan_sample dan test_date dengan pengecekan test_date
             if ($spk->test_date) {
                 $created1 = Carbon::parse($spk->penyerahan_sample);
                 $updated1 = Carbon::parse($spk->test_date);
                 $diff1 = $updated1->diff($created1);
-
-                // Format selisih waktu menjadi HH:MM:SS
+    
                 $spk->time_to_release = sprintf('%02d:%02d:%02d', $diff1->h, $diff1->i, $diff1->s);
             } else {
-                // Jika test_date belum ada, set default 00:00:00
                 $spk->time_to_release = '00:00:00';
             }
-
-            // Format selisih waktu menjadi HH:MM:SS
+    
             $spk->time_to_close = sprintf('%02d:%02d:%02d', $diff->h, $diff->i, $diff->s);
-            // $spk->time_to_release = sprintf('%02d:%02d:%02d', $diff1->h, $diff1->i, $diff1->s);
-
-            // Pengecualian untuk role tertentu
-            if (!in_array($loggedInUser->role, $excludedRoles)) {
+    
+            // Pengecualian untuk role tertentu dan department PACV/PACS
+            if (
+                !in_array($loggedInUser->role, $excludedRoles) &&
+                !in_array($loggedInUser->department, $departmentsWithFullAccess)
+            ) {
                 // Hanya tampilkan SPK jika department sesuai dengan user yang login
                 if ($spk->department !== $loggedInUser->department) {
                     $spk->hidden = true; // Menandai data ini agar tidak ditampilkan
                 }
             }
         });
-
+    
         // Filter data yang tidak memiliki status hidden
         $spks = $spks->where('hidden', '!=', true);
-
+    
         // Kirim data SPK yang sudah digabungkan dengan data user ke view
         return view('list_spk.list', compact('spks'));
     }
-
+    
     public function show($id)
     {
         $spk = Spk::findOrFail($id);  // Ambil data SPK berdasarkan ID
@@ -236,10 +295,5 @@ class ListSpkController extends Controller
             return response()->json(['error' => 'An error occurred while processing your request.'], 500);
         }
     }
-
-
-
-    
-
 
 }

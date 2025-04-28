@@ -403,7 +403,7 @@
                             </div>
                         </div>
 
-                        <!-- Modal 5 PLANT,FG,PAC -->
+                        <!-- Modal 5 PLANT,RM,PAC -->
                         <div class="modal fade" id="modalTest5" tabindex="-1" aria-labelledby="modalForm5Label" aria-hidden="true">
                             <div class="modal-dialog modal-xl" style="max-width: 900px;">
                                 <div class="modal-content" style="border-radius: 10px; background-color: #f9f9f9;">
@@ -787,7 +787,7 @@
                 } else if (spk.department === 'Plant' && spk.product_type === 'PAC' && spk.material_type === 'RM') {
                     // Menampilkan modal untuk PAC RM
                     $('#modalTest5').modal('show');
-                    $('#spkId4').val(spk.id);
+                    $('#spkId5').val(spk.id);
                 } else if (spk.department === 'Plant' && spk.material_type === 'FG' && spk.product_type === 'Specialty') {
                     // Menampilkan modal untuk Specialty FG
                     $('#modalTest1').modal('show');
@@ -1368,6 +1368,7 @@
             });
         });
     </script>
+
     <!-- save button 5  -->
     <script>
         $(document).ready(function() {
@@ -1406,7 +1407,7 @@
                 }).then((willSubmit) => {
                     if (willSubmit) {
                         $.ajax({
-                            url: '{{ route("save.parameter.data") }}',
+                            url: '{{ route("save.parameter.data.modal5") }}',
                             method: 'POST',
                             data: {
                                 spkId: spkId,
